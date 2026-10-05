@@ -7,7 +7,7 @@ public class UneFenetre extends JFrame {
     Thread[] mesThread;
     private final int LARG = 1500, HAUT=800;
 
-    public UneFenetre(int nbLig){
+    public UneFenetre(int nbLig, int boucle){
 
         /*
         * ajouter sonMobile a la fenetre
@@ -25,7 +25,7 @@ public class UneFenetre extends JFrame {
         mesThread = new Thread[nbLig];
 
         for (int i = 0; i < nbLig; i++) {
-            mesMobiles[i] = new UnMobile(LARG,HAUT/nbLig);
+            mesMobiles[i] = new UnMobile(LARG,HAUT/nbLig, boucle);
             leConteneur.add(mesMobiles[i]);
         }
 
