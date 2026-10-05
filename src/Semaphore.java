@@ -13,6 +13,6 @@ public abstract class Semaphore {
         catch(InterruptedException e) {}}
     public synchronized void syncSignal( )
     {
-        if(++valeur > 5 ) notifyAll() ; // pk 5 ?
+        if(++valeur > 0 ) notifyAll() ;
     }
 }
