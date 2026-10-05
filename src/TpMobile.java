@@ -6,6 +6,6 @@ public class TpMobile {
         /*
         lancement de la fenêtre avec nbLigne , nombre de mobile
          */
-        new UneFenetre(3);
+        new UneFenetre(10, 10);
     }
 }
