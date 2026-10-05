@@ -22,9 +22,10 @@ public class UneFenetre extends JFrame {
         leConteneur.setLayout(new GridLayout(nbLig, 1));
 
         mesMobiles = new UnMobile[nbLig];
+        mesThread = new Thread[nbLig];
 
         for (int i = 0; i < nbLig; i++) {
-            mesMobiles[i] = new UnMobile(LARG,HAUT);
+            mesMobiles[i] = new UnMobile(LARG,HAUT/nbLig);
             leConteneur.add(mesMobiles[i]);
         }
 
