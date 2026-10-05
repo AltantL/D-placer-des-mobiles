@@ -1,11 +1,12 @@
 import java.awt.*;
 import javax.swing.*;
+import java.util.Random;
 
 class UnMobile extends JPanel implements Runnable
 {
     int saLargeur , saHauteur , sonDebDessin;
     final int sonPas = 10, sonTemps=50, sonCote =40;
-    Semaphore semaphore = new SemaphoreGeneral(4);
+    static Semaphore semaphore = new SemaphoreBinaire(2);
     UnMobile(int telleLargeur, int telleHauteur)
     {
         super(); // JPpanel
@@ -14,20 +15,29 @@ class UnMobile extends JPanel implements Runnable
         setSize(telleLargeur, telleHauteur) ;
 
     }
-    public void run() // lance
-    {
-        for (int i = 0; i <20; i++) {
+    public void run(){
+
+
+        for (int i = 0; i < 1; i++) {
+
+            for(sonDebDessin =0; sonDebDessin < (saLargeur - sonPas)/3; sonDebDessin+= sonPas)
+                {mouvement();}
+
             semaphore.syncWait();
-            for(sonDebDessin =0; sonDebDessin < saLargeur - sonPas; sonDebDessin+= sonPas)
-            {
-                mouvement();
-            }
-            for(sonDebDessin =saLargeur; sonDebDessin > 0; sonDebDessin-= sonPas)
-            {
-                mouvement();
-            }
+
+            setForeground(Color.RED);
+
+            for(sonDebDessin =(saLargeur - sonPas)/3; sonDebDessin < (saLargeur - sonPas)*2/3; sonDebDessin+= sonPas)
+                {mouvement();}
+            setForeground(Color.BLACK);
+
             semaphore.syncSignal();
+
+            for(sonDebDessin =(saLargeur - sonPas)*2/3; sonDebDessin < (saLargeur - sonPas); sonDebDessin+= sonPas)
+                {mouvement();}
+
         }
+
 
     }
 
