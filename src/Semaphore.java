@@ -3,7 +3,7 @@ public abstract class Semaphore {
     protected int valeur=0;
 
     protected Semaphore (int valeurInitiale){
-        valeur = valeurInitiale>0 ? valeurInitiale:0 ;
+        valeur = valeurInitiale;
     }
 
     public synchronized void syncWait() {
