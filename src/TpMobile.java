@@ -3,7 +3,9 @@ import javax.swing.*;
 
 public class TpMobile {
     public static void main(String[] args){
-
-        new UneFenetre(1);
+        /*
+        lancement de la fenêtre avec nbLigne , nombre de mobile
+         */
+        new UneFenetre(3);
     }
 }

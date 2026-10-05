@@ -8,11 +8,11 @@ public class UneFenetre extends JFrame {
 
     public UneFenetre(int nbLig){
 
-        /*TODO
+        /*
         * ajouter sonMobile a la fenetre
-        * creer une thread lathread avec sonMobile
+        * creer une thread laThread avec sonMobile
         * afficher la fenetre
-        * lanceer laThread
+        * lancer laThread
         * */
 
 
@@ -24,16 +24,18 @@ public class UneFenetre extends JFrame {
         Thread[] mesThread = new Thread[nbLig];
 
         for (int i = 0; i < nbLig; i++) {
-            mesMobiles[i] = new UnMobile(LARG,HAUT,i*500);
+            mesMobiles[i] = new UnMobile(LARG,HAUT);
             leConteneur.add(mesMobiles[i]);
-            mesThread[i] = new Thread(mesMobiles[i]);
-            mesThread[i].start();
         }
 
         setSize(LARG,HAUT);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        for (int i = 0; i < nbLig; i++) {
+            mesThread[i] = new Thread(mesMobiles[i]);
+            mesThread[i].start();
+        }
 
     }
 }

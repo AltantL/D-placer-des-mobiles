@@ -3,22 +3,18 @@ import javax.swing.*;
 
 class UnMobile extends JPanel implements Runnable
 {
-    int saLargeur , saHauteur , sonDebDessin ,sleeps;
+    int saLargeur , saHauteur , sonDebDessin;
     final int sonPas = 10, sonTemps=50, sonCote =40;
-    UnMobile(int telleLargeur, int telleHauteur, int sleep)
+    UnMobile(int telleLargeur, int telleHauteur)
     {
-        super( ) ;
+        super(); // JPpanel
         saLargeur = telleLargeur;
         saHauteur = telleHauteur;
-        sleeps = sleep;
         setSize(telleLargeur, telleHauteur) ;
 
     }
-    public void run()
+    public void run() // lance
     {
-        try{Thread.sleep(sleeps);}
-        catch(InterruptedException telleExcp)
-        {telleExcp.printStackTrace();}
         for (int i = 0; i <20; i++) {
             for(sonDebDessin =0; sonDebDessin < saLargeur - sonPas; sonDebDessin+= sonPas)
             {
